@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>MN Privacy Field Guide</title>
+  <meta name="description" content="A mobile-first field guide to everyday surveillance, privacy risks, and practical defense habits.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <section id="guideTab" class="tab active">
+      <header class="pageHeader">
+        <div class="icon">◈</div>
+        <div>
+          <h1>MN Privacy Field Guide</h1>
+          <p>Everyday surveillance, decoded.</p>
+        </div>
+      </header>
+
+      <div class="heroPanel">
+        <div>
+          <span class="eyebrow">Civic privacy toolkit</span>
+          <h2>Spot the systems around you.</h2>
+          <p>This guide explains common tracking technologies in plain language, what they collect, and what normal privacy habits reduce exposure.</p>
+        </div>
+        <div class="orb"></div>
+      </div>
+
+      <div class="chips" aria-label="Category filters">
+        <button class="filterChip active" data-filter="all">All</button>
+        <button class="filterChip" data-filter="vehicle">Vehicle</button>
+        <button class="filterChip" data-filter="phone">Phone</button>
+        <button class="filterChip" data-filter="public">Public Space</button>
+        <button class="filterChip" data-filter="data">Data Trail</button>
+      </div>
+
+      <input id="search" autocomplete="off" placeholder="⌕  Search technology, risk, or habit...">
+      <div id="resultCount" class="resultCount">0 cards</div>
+      <div id="cards"></div>
+    </section>
+
+    <section id="checkTab" class="tab">
+      <header class="pageHeader">
+        <div class="icon">⌁</div>
+        <div>
+          <h1>Exposure Check</h1>
+          <p>Estimate your everyday data trail.</p>
+        </div>
+      </header>
+
+      <div class="scoreCard">
+        <div>
+          <span class="eyebrow">Exposure index</span>
+          <h2 id="scoreLabel">Low</h2>
+          <p id="scoreText">Answer the questions below to generate a privacy exposure profile.</p>
+        </div>
+        <div class="scoreRing">
+          <span id="scoreValue">0</span>
+        </div>
+      </div>
+
+      <div id="quiz"></div>
+
+      <div class="card actionCard">
+        <h2>Priority habits</h2>
+        <div id="recommendations"></div>
+      </div>
+    </section>
+
+    <section id="resourcesTab" class="tab">
+      <header class="pageHeader">
+        <div class="icon">ⓘ</div>
+        <div>
+          <h1>Resources</h1>
+          <p>Law, definitions, and public-interest references.</p>
+        </div>
+      </header>
+
+      <div class="card lawCard">
+        <h2>Minnesota Law: Minn. Stat. § 13.824</h2>
+        <p>Minnesota has a statute covering automated license plate reader data. Use the official Revisor page for the actual legal text.</p>
+        <a href="https://www.revisor.mn.gov/statutes/cite/13.824" target="_blank" rel="noopener">Open Minnesota statute ↗</a>
+      </div>
+
+      <div class="card">
+        <h2>Street-Level Surveillance</h2>
+        <p>EFF maintains explainers about technologies used in public spaces, including automated license plate readers.</p>
+        <a href="https://sls.eff.org/technologies/automated-license-plate-readers-alprs" target="_blank" rel="noopener">Open EFF ALPR page ↗</a>
+      </div>
+
+      <div class="card">
+        <h2>How to use this site</h2>
+        <p>Use it as a personal awareness guide, not as legal advice. The focus is practical privacy literacy: knowing what systems collect, where risk accumulates, and which everyday habits reduce unnecessary exposure.</p>
+      </div>
+
+      <div class="card">
+        <h2>Project idea</h2>
+        <p>This repo is intentionally different from the LPR map. It avoids uncertain pin locations and instead becomes a polished privacy education app that can grow with new cards, quizzes, and resource links.</p>
+      </div>
+    </section>
+  </main>
+
+  <nav>
+    <button id="guideNav" class="on" onclick="showTab('guideTab')">◈<span>Guide</span></button>
+    <button id="checkNav" onclick="showTab('checkTab')">⌁<span>Check</span></button>
+    <button id="resourcesNav" onclick="showTab('resourcesTab')">ⓘ<span>Info</span></button>
+  </nav>
+
+  <div id="sheetBackdrop" onclick="closeSheet()"></div>
+  <div id="sheet" class="sheet" role="dialog" aria-modal="true">
+    <div class="handle"></div>
+    <button class="closeBtn" onclick="closeSheet()">×</button>
+    <div id="sheetBody"></div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
